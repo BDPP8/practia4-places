@@ -2,6 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class DescriptionPlace extends StatelessWidget{
+  //variable
+  String textoTitulo;
+  int cantidadEstrellas;
+  String textoDescripcion;
+
+  //metodo constructor
+  DescriptionPlace(this.textoTitulo, this.cantidadEstrellas, this.textoDescripcion);
   @override
   Widget build(BuildContext context) {
     //Titulo
@@ -10,10 +17,11 @@ class DescriptionPlace extends StatelessWidget{
           right: 10
       ),
       child: Text(
-        "Duwili Ella",
+        textoTitulo,
         style: TextStyle(
           fontSize: 34,
           fontWeight: FontWeight.bold,
+          fontFamily: "PlayfairDisplay"
         ),
       ),
     );
@@ -38,21 +46,23 @@ class DescriptionPlace extends StatelessWidget{
       ),
     );
     //estrellas
-    final estrellas = Row(
-      children: [
-        estrella,
-        estrella,
-        estrella,
-        estrella,
-        estrellaBorde,
-      ],
+    List<Container> estrellas = new List();
+    for(int i=0;i<5;i++){
+      if(i<cantidadEstrellas){
+        estrellas.add(estrella);
+      }else{
+        estrellas.add(estrellaBorde);
+      }
+    }
+    final filaEstrellas = Row(
+      children: estrellas,
     );
 
     //filaTitulo
     final filaTitulo = Row(
       children: [
         titulo,
-        estrellas
+        filaEstrellas
       ],
     );
     //descripcion
@@ -61,15 +71,11 @@ class DescriptionPlace extends StatelessWidget{
           top: 10
       ),
       child: Text(
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. "
-            "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, "
-            "when an unknown printer took a galley of type and scrambled it to make a type specimen book. "
-            "It has survived not only five centuries, but also the leap into electronic typesetting, "
-            "remaining essentially unchanged",
+        textoDescripcion,
         style: TextStyle(
           fontSize: 14,
           color: Colors.grey,
-
+          fontFamily: "VampiroOne"
         ),
       ),
     );

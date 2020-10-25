@@ -74,3 +74,14 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+  fonts:
+    - family: PlayfairDisplay
+      fonts:
+        - asset: assets/fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf
+    - family: VampiroOne
+      fonts:
+        - asset: assets/fonts/VampiroOne-Regular.ttf
+
+  assets:
+    - assets/images/persona1.jpg
